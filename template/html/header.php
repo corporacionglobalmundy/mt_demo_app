@@ -30,7 +30,7 @@
             </div>
 
         </nav>
-        <div class="page-header">
+        <div class="page-header banner">
             <div class="container">
                 <div id="info">
                     <h1>API Demo</h1>

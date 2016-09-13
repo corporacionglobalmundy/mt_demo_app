@@ -45,7 +45,7 @@
                         <tr class="vcenter">
                             <td><?php print $objValue->name?></td>
                             <td>
-                                <img src="template/images/icons/flags/<?php print $objValue->_country->iso2; ?>.png" alt="<?php print $objValue->_country->name; ?>" height="12" width="17" />
+                                <img src="template/images/icons/flags/<?php print strtolower($objValue->_country->iso2); ?>.png" alt="<?php print $objValue->_country->name; ?>" height="12" width="17" />
                                 <?php print $objValue->_country->name?>
                             </td>
                             <td><?php print $objValue->dialcode?></td>

@@ -111,19 +111,25 @@ class OrdersController {
             'attributes' => 'sms,fax'
         );
 
-        $this->createCarts();
+        try {
+            
+            $this->createCarts();
                         
-        $this->createItems($arrItemForm);
-        
-        /**
-         * the external order reference can be the order id on your system 
-         * or any other identification that you can use to link.
-         */
-        $arrCartCheckoutForm['checkout'] = array(
-            'external_order_reference' => $strOrderReference, 
-        );
+            $this->createItems($arrItemForm);
 
-        $objDidResult = $this->createCartCheckout($arrCartCheckoutForm);
+            /**
+             * the external order reference can be the order id on your system 
+             * or any other identification that you can use to link.
+             */
+            $arrCartCheckoutForm['checkout'] = array(
+                'external_order_reference' => $strOrderReference, 
+            );
+
+            $objDidResult = $this->createCartCheckout($arrCartCheckoutForm);
+            
+        } catch (Exception $ex) {
+            $objDidResult['error'] = $ex->getMessage();
+        }
         
         return $objDidResult;
     }

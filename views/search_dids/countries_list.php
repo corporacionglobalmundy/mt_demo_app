@@ -26,7 +26,7 @@
                 foreach ($objCountriesList['countriesList'] as $objValue)
                 {
                 ?>
-                    <li><a href="/?module=search_dids&country=<?php print strtolower($objValue->handle) ?>"><img src="template/images/icons/flags/<?php print $objValue->iso2; ?>.png" alt="<?php print $objValue->name; ?>" height="12" width="17"><?php print $objValue->name; ?></a></li>    
+                    <li><a href="/?module=search_dids&country=<?php print strtolower($objValue->handle) ?>"><img src="template/images/icons/flags/<?php print strtolower($objValue->iso2); ?>.png" alt="<?php print $objValue->name; ?>" height="12" width="17"><?php print $objValue->name; ?></a></li>    
                 <?php
                 }
                 ?>

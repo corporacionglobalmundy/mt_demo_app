@@ -1,23 +1,25 @@
-<h2>Order Overview <?php print $reference; ?></h2>
-
 <?php
 if(isset($objOrderInfo['error']))
 {
 ?> 
     <div class="alert alert-danger">
-        <strong>Danger!</strong> <?php print $objOrderList['error']?>
+        <strong>Danger!</strong> An error occured try later.
     </div>
 <?php
 }
 else {
     if (!empty($objOrderInfo['orderInfo'])) {
-
+    ?> 
+        <h2>Order Overview <?php print $objOrderInfo['orderInfo']->external_order_reference; ?></h2>
+        
+        <ol class="breadcrumb">
+            <li><a href="/?action=search_dids&module=orders">Order List</a></li>
+            <li class="active"><?php print $objOrderInfo['orderInfo']->external_order_reference;; ?></li>
+        </ol>
+    <?php        
         foreach ($objOrderInfo['orderInfo']->_items as $objValue) {
             ?>
-            <ol class="breadcrumb">
-                <li><a href="/?action=search_dids&module=orders">Order List</a></li>
-                <li class="active"><?php print $reference; ?></li>
-            </ol>
+            
             <table class="table">
                 <tr>
                     <th>Status</th>
@@ -37,13 +39,29 @@ else {
                 </tr>
                 <tr>
                     <th>Country</th>
-                    <td><img src="template/images/icons/flags/69x40/<?php print $objValue->country_code; ?>.png" alt="<?php print $objValue->country_code; ?>" height="23" width="40"></td>
+                    <td><img src="template/images/icons/flags/69x40/<?php print strtolower($objValue->country_code); ?>.png" alt="<?php print $objValue->country_code; ?>" height="23" width="40"></td>
                 </tr>
                 <tr>
                     <th>Attributes</th>
                     <td><?php print $objValue->attributes; ?></td>
                 </tr>
-            <?php    
+                <?php 
+                    if(isset($objValue->_phone_number))
+                    {    
+                ?>
+                        <tr>
+                            <th>Numbers</th>
+                            <td>
+                                <?php 
+                                    foreach($objValue->_phone_number as $strPhoneNumber)
+                                    {
+                                        print $strPhoneNumber." ";
+                                    }
+                                ?>
+                            </td>
+                        </tr>
+            <?php
+                    }
                 }
                 else {
             ?>

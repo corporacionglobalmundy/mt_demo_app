@@ -1,6 +1,26 @@
-.page-header {
+.banner {
     margin-top: 50px;
     background: url('../images/blue_bg.jpeg');
+}
+
+#homepage {
+    
+}
+
+#homepage ul {
+    padding-left: 15px;
+}
+
+#homepage ul li {
+    padding: 5px 0;
+}
+
+.img-left {
+    float: left;
+}
+
+.img-right {
+    float: right;
 }
 
 #info {

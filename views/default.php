@@ -1,1 +1,0 @@
-This is home for now, also "I am the best!!"

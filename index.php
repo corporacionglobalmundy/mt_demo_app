@@ -19,7 +19,7 @@ switch ($module) {
         break;
     
     default:
-        require 'views/default.php';
+        require 'views/homepage.php';
 }
 require 'template/html/footer.php';
 

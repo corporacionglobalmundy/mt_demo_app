@@ -1,6 +1,6 @@
 <h2>DID Coverage for <?php print $strCountryName; ?> 
     <div class="pull-right flag_120x70">
-        <img src="template/images/icons/flags/120x70/<?php print $strIso2; ?>.png" alt="<?php print $strCountryName; ?>" height="70" width="120">
+        <img src="template/images/icons/flags/120x70/<?php print strtolower($strIso2); ?>.png" alt="<?php print $strCountryName; ?>" height="70" width="120">
     </div>
 </h2>
 <p>Pricing above is for 1 DID. </p>

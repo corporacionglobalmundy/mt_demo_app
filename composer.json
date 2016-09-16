@@ -1,0 +1,30 @@
+{
+    "name": "mt/demo-app",
+    "type": "php-app",
+    "description": "",
+    "keywords": ["demo app", "magictelecom"],
+    "homepage": "https://github.com/MagicTelecom/mt_demo_app",
+    "license": "MIT",
+    "authors": [{
+        "name": "Patricia Muniz Recio",
+        "email": "pmuniz@voxbeam.com"
+    }],
+    "require": {
+        "php": ">=5.3.9",
+        "apimatic/unirest-php": "dev-master",
+        "magictelecom/magictelecomapi": "1.0.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+             "MT\\DemoApp": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/MagicTelecom/mt_demo_app/issues"
+    }
+}

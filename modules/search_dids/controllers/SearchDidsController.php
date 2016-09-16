@@ -1,11 +1,9 @@
 <?php
-require_once 'magictelecom_sdk/src/Controllers/DidsController.php';
-require_once 'magictelecom_sdk/src/Controllers/DidsProductsController.php';
+
 
 use MagicTelecomAPILib\APIException;
 use MagicTelecomAPILib\Controllers\DidsController;
 use MagicTelecomAPILib\Controllers\DidsProductsController;
-
 
 class SearchDidsController 
 {

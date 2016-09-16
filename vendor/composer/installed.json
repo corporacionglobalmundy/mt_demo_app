@@ -1,0 +1,120 @@
+[
+    {
+        "name": "apimatic/unirest-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/apimatic/unirest-php.git",
+            "reference": "ab48fe3322b275a27de3ff8d786be19d16fe01d7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/apimatic/unirest-php/zipball/ab48fe3322b275a27de3ff8d786be19d16fe01d7",
+            "reference": "ab48fe3322b275a27de3ff8d786be19d16fe01d7",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "codeclimate/php-test-reporter": "0.1.*",
+            "phpunit/phpunit": "~4.4"
+        },
+        "time": "2016-09-01 05:59:13",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Unirest": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mashape",
+                "email": "opensource@mashape.com",
+                "homepage": "https://www.mashape.com",
+                "role": "Developer"
+            },
+            {
+                "name": "APIMATIC",
+                "email": "opensource@apimatic.io",
+                "homepage": "https://apimatic.io",
+                "role": "Developer"
+            }
+        ],
+        "description": "Unirest PHP",
+        "homepage": "https://github.com/apimatic/unirest-php",
+        "keywords": [
+            "client",
+            "curl",
+            "http",
+            "https",
+            "rest"
+        ]
+    },
+    {
+        "name": "magictelecom/magictelecomapi",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/MagicTelecom/mt_php_sdk.git",
+            "reference": "2838f2d84cd7be4a1f8242e47b980a6e3db56171"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/MagicTelecom/mt_php_sdk/zipball/2838f2d84cd7be4a1f8242e47b980a6e3db56171",
+            "reference": "2838f2d84cd7be4a1f8242e47b980a6e3db56171",
+            "shasum": ""
+        },
+        "require": {
+            "apimatic/unirest-php": "dev-master",
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.4.0"
+        },
+        "time": "2016-06-28 15:19:31",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "MagicTelecomAPILib\\": "src/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alain Hernandez Lopez",
+                "email": "alain@voxbeam.com",
+                "homepage": "https://www.magictelecom.com/",
+                "role": "Software Architect"
+            }
+        ],
+        "description": "Magic Telecom API",
+        "homepage": "https://www.magictelecom.com/",
+        "keywords": [
+            "API",
+            "Magic Telecom API",
+            "SDK"
+        ],
+        "support": {
+            "issues": "https://github.com/Localphone/DidBundle/issues",
+            "source": "https://github.com/MagicTelecom/mt_php_sdk/tree/master"
+        }
+    }
+]

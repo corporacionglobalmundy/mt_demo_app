@@ -17,9 +17,19 @@ The main goal of this project is to show you how to use our RESTful API. You sho
 
 2- cd into your new folder ```cd mt_demo_app/```
 
-3- run composer install to install all dependencies ```php composer.phar install```
+3- Run composer install to install all dependencies ```php composer.phar install```
 
-4- create a virtual host for this new project. Something like this for apache2: 
+4- Update the SDK configuration file to use the live enviromment, and your API token. 
+
+4.1 - To get your API token go to profile page https://www.magictelecom.com/profile , and copy your toke under the Api Tokens section.
+
+4.2 - Open Configuration class located on the vendor folder ```nano vendor/magictelecom/magictelecomapi/src/Configuration.php```, and replace the $BASEURI and $APITOKEN variables. 
+  - For production enviromment ensure that the ```$BASEURI``` is set to https://api.magictelecom.com
+  - For sandbox enviromment ensure that the ```$BASEURI``` is set to http://sandbox.api.magictelecom.com
+  - Update the ```$APITOKEN``` with your token. 
+
+
+5 - Create a virtual host for this new project. Something like this for apache2: 
 
 ```
 <VirtualHost *:80>

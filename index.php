@@ -1,25 +1,26 @@
 <?php
-$module="";
 
+require_once __DIR__.'/app/autoload.php';
+
+$module="";
 extract($_GET);
 
-require 'template/html/header.php';
+require_once __DIR__.'/template/html/header.php';
 
 switch ($module) {
     case 'search_dids':
-        require 'modules/search_dids/search_dids.php';
+        require_once __DIR__.'/modules/search_dids/search_dids.php';
         break;
 
     case 'orders':
-        require 'modules/orders/orders.php';
+        require_once __DIR__.'/modules/orders/orders.php';
         break;
 
     case 'account':
-        require 'modules/account/account.php';
+        require_once __DIR__.'/modules/account/account.php';
         break;
-    
-    default:
-        require 'views/homepage.php';
-}
-require 'template/html/footer.php';
 
+    default:
+        require_once __DIR__.'/views/homepage.php';
+}
+require_once __DIR__.'/template/html/footer.php';

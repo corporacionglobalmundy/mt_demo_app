@@ -1,32 +1,33 @@
 <?php
-require_once 'magictelecom_sdk/src/Controllers/AccountsController.php';
+
+namespace MT\DemoApp\modules\orders\controllers;
 
 use MagicTelecomAPILib\APIException;
 use MagicTelecomAPILib\Controllers\AccountsController;
 
 class OrdersController {
-    
+
     /**
      * This is the account number register on the API,
      * you can get this information in the Account section.
      */
     private $strAccountNumber = '75';
-    
+
     /**
      * The account already has a trunk in the API this is the ID.
      */
-    private $intTrunkId = 99;
+    private $intTrunkId = 1;
 
 
     public function __construct()
     {
         $this->objAccountsController = new AccountsController();
     }
-    
+
     /**
-     * Create the cart with the API account 
+     * Create the cart with the API account
      * number and return the cart ID.
-     * 
+     *
      * @param string $strAccountNumber
      * @return APIException
      */
@@ -35,7 +36,7 @@ class OrdersController {
             $objResponse = $this->objAccountsController->createCarts($this->strAccountNumber);
 
             $this->intCartId = (int) $objResponse->cart_id;
-        } 
+        }
         catch (APIException $ex) {
 
             throw new Exception(
@@ -44,20 +45,20 @@ class OrdersController {
             );
         }
     }
-    
+
     /**
-     * 
+     *
      * Create the cart items on the API.
-     * 
+     *
      * @param array $arrItemForm
      * @return APIException
-     * 
+     *
      */
     protected function createItems($arrItemForm) {
         try {
             $this->objAccountsController->createItems(
                     $this->strAccountNumber, $this->intCartId, $arrItemForm);
-        } 
+        }
         catch (APIException $ex) {
             throw new Exception(
                 "Failed to create items for cart: {$this->intCartId}: " .
@@ -65,11 +66,11 @@ class OrdersController {
             );
         }
     }
-    
+
     /**
-     * 
+     *
      * Checkout the cart on the API.
-     * 
+     *
      * @param array $arrCartCheckoutForm
      * @return type
      * @throws APIException
@@ -80,7 +81,7 @@ class OrdersController {
                     $this->strAccountNumber, $this->intCartId, $arrCartCheckoutForm);
 
             return $objOrder;
-        } 
+        }
         catch (APIException $ex) {
             throw new Exception(
                 "Failed to checkout cart: {$this->intCartId}: " .
@@ -88,12 +89,12 @@ class OrdersController {
             );
         }
     }
-    
-    
+
+
     /**
-     * 
+     *
      * This is an example how to buy a did location using the api.
-     * 
+     *
      * @param string $strLocationHandle
      * @param string $strDidProductHandle
      * @param integer $intQuantity
@@ -112,44 +113,44 @@ class OrdersController {
         );
 
         try {
-            
+
             $this->createCarts();
-                        
+
             $this->createItems($arrItemForm);
 
             /**
-             * the external order reference can be the order id on your system 
+             * the external order reference can be the order id on your system
              * or any other identification that you can use to link.
              */
             $arrCartCheckoutForm['checkout'] = array(
-                'external_order_reference' => $strOrderReference, 
+                'external_order_reference' => $strOrderReference,
             );
 
             $objDidResult = $this->createCartCheckout($arrCartCheckoutForm);
-            
+
         } catch (Exception $ex) {
             $objDidResult['error'] = $ex->getMessage();
         }
-        
+
         return $objDidResult;
     }
 
-    
+
     /**
      * List all the orders for the account.
-     * 
+     *
      * @return type
      */
     public function ordersListAction($intPage=1, $intLimit=10)
     {
         try {
-                        
+
             $objOrders = $this->objAccountsController->getOrders($this->strAccountNumber, $intPage, $intLimit);
 
             $arrResponse = array();
 
             if ($objOrders->data->total > 0) {
-                
+
                 $arrResponse['total'] = $objOrders->data->total;
                 $arrResponse['orderList'] = $objOrders->data->results;
             }
@@ -158,25 +159,25 @@ class OrdersController {
 
             $arrResponse['error'] = "Error " . $e->getCode() . ": " . $e->getMessage();
         }
-                
+
         return $arrResponse;
     }
-    
+
     /**
      * Get the order on the API.
-     * 
+     *
      * @return type
      */
     public function getOrderAction($intOrderId)
     {
         try {
-                        
+
             $objOrder = $this->objAccountsController->getOrder($this->strAccountNumber, $intOrderId);
 
             $arrResponse = array();
 
             if (isset($objOrder->data)) {
-                
+
                 $arrResponse['orderInfo'] = $objOrder->data;
             }
         } catch (APIException $e) {
@@ -184,7 +185,7 @@ class OrdersController {
 
             $arrResponse['error'] = "Error " . $e->getCode() . ": " . $e->getMessage();
         }
-                
+
         return $arrResponse;
     }
 }

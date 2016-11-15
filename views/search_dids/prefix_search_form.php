@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-xs-7">
             <input type="hidden" name="module" value="search_dids" />
-            <input type="text" name="prefix" pattern="^[0-9]+$" class="form-control" placeholder="407" value="<?php if(isset($prefix)){print $prefix;} ?>" />
+            <input type="text" name="prefix" pattern="^[0-9]+$" class="form-control" placeholder="1407" value="<?php if(isset($prefix)){print $prefix;} ?>" />
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
     </div>

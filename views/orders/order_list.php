@@ -3,7 +3,7 @@
 <?php
 if(isset($objOrderList['error']))
 {
-?> 
+?>
     <div class="alert alert-danger">
         <strong>Danger!</strong> <?php print $objOrderList['error']?>
     </div>
@@ -19,6 +19,7 @@ else {
                     <th>Order Reference</th>
                     <th>Status</th>
                     <th>Quantity</th>
+                    <th>Created</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@ else {
                 <td><a href="/?module=orders&action=overview&reference=<?php print $objValue->order_id ?>"><?php print $objValue->external_order_reference ?></a></td>
                 <td><?php print $objValue->_items[0]->status ?></td>
                 <td><?php print count($objValue->_items[0]); ?></td>
+                <td><?php $datetime = new DateTime($objValue->created); print $datetime->format(DateTime::RFC1036); ?></td>
             </tr>
             <?php
         }

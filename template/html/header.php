@@ -6,6 +6,7 @@
         <title>Magictelecom Demo</title>
         <link href="template/css/bootstrap.min.css" rel="stylesheet" />
         <link href="template/css/style.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -16,14 +17,14 @@
                         <span class="sr-only">Toggle navigation</span>
                         <i class="icon-menu"></i> Menu
                     </button>
-                    <a class="navbar-brand" href="/">Demo Magictelecom</a>
+                    <a class="navbar-brand" href="/">MagicTelecom Demo App</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class=<?php if($module=='search_dids'){ print '"active"';}?> ><a href="/?module=search_dids">Search Dids</a></li>
                         <li class=<?php if($module=='orders'){ print '"active"';}?> ><a href="/?module=orders">Orders</a></li>
-                        <li class=<?php if($module=='account'){ print '"active"';}?> ><a href="/?module=account">Account</a></li>
+                        <li class=<?php if($module=='account'){ print '"active"';}?> ><a href="/?module=account">Account Information</a></li>
                     </ul>
                 </div>
 

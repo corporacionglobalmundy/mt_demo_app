@@ -1,3 +1,6 @@
+#vendors
+/vendor/
+
 #Ignore temp files created by text editors
 *~
 *#

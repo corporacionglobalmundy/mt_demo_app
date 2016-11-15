@@ -1,0 +1,21 @@
+#production
+deployment:
+  user: mtsbapiadm
+  from: ./
+  to: /home/mtsbapiadm/production.demoapp.magictelecom.com
+  excludes:
+releases:
+  enabled: true
+  max: 5
+  symlink: current
+  directory: releases
+hosts:
+  - plx47.i
+tasks:
+  pre-deploy:
+      - composer-update: {env: prod}
+  on-deploy:
+  post-release:
+    - composer/generate-autoload: {env: prod}
+    - composer/install: {env: prod}
+  post-deploy:

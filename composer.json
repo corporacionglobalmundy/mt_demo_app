@@ -12,7 +12,8 @@
     "require": {
         "php": ">=5.3.9",
         "apimatic/unirest-php": "dev-master",
-        "magictelecom/magictelecomapi": "1.0.x-dev"
+        "magictelecom/magictelecomapi": "1.0.x-dev",
+        "andres-montanez/magallanes": "^1.0"
     },
     "autoload": {
         "psr-4": {

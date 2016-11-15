@@ -1,0 +1,7 @@
+# global settings
+name: Magic Telecom Api Demo app
+email: alain@voxbeam.com
+notifications: true
+logging: true
+maxlogs: 30
+ssh_needs_tty: false

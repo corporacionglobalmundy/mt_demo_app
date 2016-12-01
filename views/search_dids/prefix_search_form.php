@@ -6,7 +6,7 @@
         <li><strong>1407</strong> Orlando (407), FL</li>
         <li><strong>1312</strong> Chicago Zone 01 (312), IL</li>
         <li><strong>1212</strong> New York City Zone 1 (212), NY</li>
-        <li><strong>1760</strong> Baker (760), CA</li>
+        <li><strong>1760</strong> California City (760), CA</li>
         <li><strong>5255</strong> Mexico City</li>
         <li><strong>44203</strong> London (0203)</li>
         <li><strong>5511</strong> Sao Paulo</li>

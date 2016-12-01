@@ -1,11 +1,11 @@
 <h2>DID Orders</h2>
 
 <?php
-if(isset($objOrderList['error']))
+if(isset($objOrderResult['error']))
 {
 ?>
     <div class="alert alert-danger">
-        <strong>Danger!</strong> <?php print $objOrderList['error']?>
+        <strong>Danger!</strong> <?php print $objOrderResult['error']?>
     </div>
 <?php
 }

@@ -2,6 +2,7 @@
 
 namespace MT\DemoApp\modules\orders\controllers;
 
+use Exception;
 use MagicTelecomAPILib\APIException;
 use MagicTelecomAPILib\Controllers\AccountsController;
 
@@ -38,11 +39,8 @@ class OrdersController {
             $this->intCartId = (int) $objResponse->cart_id;
         }
         catch (APIException $ex) {
-
             throw new Exception(
-                "Failed to create a cart for account: {$this->strAccountNumber}: " .
-                $ex->getCode() . ': ' . $ex->getMessage()
-            );
+                "Failed to create a cart for account: {$this->strAccountNumber}: - ".$ex->getResponseBody()->message, $ex->getCode());
         }
     }
 
@@ -60,10 +58,7 @@ class OrdersController {
                     $this->strAccountNumber, $this->intCartId, $arrItemForm);
         }
         catch (APIException $ex) {
-            throw new Exception(
-                "Failed to create items for cart: {$this->intCartId}: " .
-                $ex->getCode() . ': ' . $ex->getMessage()
-            );
+            throw new Exception("Failed to create items for cart: {$this->intCartId}: - ".$ex->getResponseBody()->message, $ex->getCode());
         }
     }
 
@@ -82,11 +77,8 @@ class OrdersController {
 
             return $objOrder;
         }
-        catch (APIException $ex) {
-            throw new Exception(
-                "Failed to checkout cart: {$this->intCartId}: " .
-                $ex->getCode() . ': ' . $ex->getMessage()
-            );
+        catch (APIException $ex) {     
+            throw new Exception( "Failed to checkout cart: {$this->intCartId} - ".$ex->getResponseBody()->message, $ex->getCode());
         }
     }
 
@@ -129,6 +121,7 @@ class OrdersController {
             $objDidResult = $this->createCartCheckout($arrCartCheckoutForm);
 
         } catch (Exception $ex) {
+                        
             $objDidResult['error'] = $ex->getMessage();
         }
 

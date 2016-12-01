@@ -3,7 +3,7 @@ if(isset($objOrderInfo['error']))
 {
 ?> 
     <div class="alert alert-danger">
-        <strong>Danger!</strong> An error occured try later.
+        <strong>Danger!</strong> An error occured try later. <?php print $objOrderInfo['error']?>
     </div>
 <?php
 }

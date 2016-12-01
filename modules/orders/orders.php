@@ -20,7 +20,7 @@ switch ($action) {
 
         if (!isset($location) || is_null($location) || !isset($product) || is_null($product) || !isset($quantity) || is_null($quantity) )
         {
-            $objOrderList['error'] = 'The request cannot be process one of the parameter are missing.';
+            $objOrderResult['error'] = 'The request cannot be process one of the parameter are missing.';
 
             require_once 'views/orders/order_list.php';
 
@@ -29,6 +29,13 @@ switch ($action) {
 
         $objOrderResult = $objOrdersController->orderDidLocationsAction($location, $product, $quantity, $strOrderReference);
 
+        if($objOrderResult['error'])
+        {
+            require_once 'views/orders/order_list.php';
+
+            return;
+        } 
+        
         header("Location: /?module=orders&action=overview&reference=".$objOrderResult->order_id);
     break;
 

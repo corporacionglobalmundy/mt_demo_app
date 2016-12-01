@@ -16,6 +16,10 @@ else {
             <li><a href="/?action=search_dids&module=orders">Order List</a></li>
             <li class="active"><?php print $objOrderInfo['orderInfo']->external_order_reference;; ?></li>
         </ol>
+        
+        <div class="alert alert-info">
+            <strong>Heads Up!</strong> Refresh me to change my status ;)
+        </div>
     <?php        
         foreach ($objOrderInfo['orderInfo']->_items as $objValue) {
             ?>

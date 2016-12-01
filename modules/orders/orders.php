@@ -27,16 +27,20 @@ switch ($action) {
             return;
         }
 
-        $objOrderResult = $objOrdersController->orderDidLocationsAction($location, $product, $quantity, $strOrderReference);
+        try {
+            $objOrderResult = $objOrdersController->orderDidLocationsAction($location, $product, $quantity, $strOrderReference);
 
-        if($objOrderResult['error'])
-        {
+            header("Location: /?module=orders&action=overview&reference=".$objOrderResult->order_id);
+        }
+        catch (Exception $ex) {
+                        
+            $objOrderResult['error'] = $ex->getMessage();
+            
             require_once 'views/orders/order_list.php';
 
             return;
-        } 
+        }
         
-        header("Location: /?module=orders&action=overview&reference=".$objOrderResult->order_id);
     break;
 
     case 'overview':

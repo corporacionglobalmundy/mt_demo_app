@@ -121,8 +121,7 @@ class OrdersController {
             $objDidResult = $this->createCartCheckout($arrCartCheckoutForm);
 
         } catch (Exception $ex) {
-                        
-            $objDidResult['error'] = $ex->getMessage();
+            throw new Exception($ex->getMessage(), $ex->getCode());
         }
 
         return $objDidResult;
